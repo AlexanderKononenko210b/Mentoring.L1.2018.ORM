@@ -20,6 +20,7 @@ namespace EF.Infrastructure.Models
         public virtual DbSet<Shipper> Shippers { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<Territory> Territories { get; set; }
+        public virtual DbSet<CreditCard> CreditCards { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -45,6 +46,11 @@ namespace EF.Infrastructure.Models
                 .HasMany(e => e.Territories)
                 .WithMany(e => e.Employees)
                 .Map(m => m.ToTable("EmployeeTerritories").MapLeftKey("EmployeeID").MapRightKey("TerritoryID"));
+
+            modelBuilder.Entity<Employee>()
+                .HasMany(e => e.CreditCards)
+                .WithRequired(c => c.Employee)
+                .HasForeignKey(c => c.EmployeeID);
 
             modelBuilder.Entity<Order_Detail>()
                 .Property(e => e.UnitPrice)
