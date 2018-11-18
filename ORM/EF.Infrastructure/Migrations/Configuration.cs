@@ -1,23 +1,62 @@
+using EF.Infrastructure.Models;
+using System.Data.Entity.Migrations;
+
 namespace EF.Infrastructure.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<EF.Infrastructure.Models.NorthwindContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<NorthwindContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(EF.Infrastructure.Models.NorthwindContext context)
+        protected override void Seed(NorthwindContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            context.Categories.AddOrUpdate(c => c.CategoryName,
+                new Category
+                {
+                    CategoryName = "Oil",
+                    Description = "Oil production",
+                    Picture = null
+                },
+                new Category
+                {
+                    CategoryName = "Gas",
+                    Description = "Gas production",
+                    Picture = null
+                },
+                new Category
+                {
+                    CategoryName = "Beverages",
+                    Description = "Soft drinks, coffees, teas, beers, and ales",
+                    Picture = null
+                });
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
+            context.Regions.AddOrUpdate(r => r.RegionID,
+                new Region
+                {
+                    RegionID = 5,
+                    RegionDescription = "Eastern Europe"
+                },
+                new Region
+                {
+                    RegionID = 6,
+                    RegionDescription = "Western Europe"
+                });
+
+            context.Territories.AddOrUpdate(t => t.TerritoryID,
+                new Territory
+                {
+                    TerritoryID = "344567",
+                    RegionID = 5,
+                    TerritoryDescription = "Downtown"
+                },
+                new Territory
+                {
+                    TerritoryID = "234567",
+                    RegionID = 6,
+                    TerritoryDescription = "Eastern town"
+                });
         }
     }
 }
