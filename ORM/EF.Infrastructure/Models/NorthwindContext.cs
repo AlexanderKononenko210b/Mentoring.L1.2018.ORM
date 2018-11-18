@@ -4,8 +4,8 @@ namespace EF.Infrastructure.Models
 {
     public partial class NorthwindContext : DbContext
     {
-        public NorthwindContext(string connectionString)
-            : base(connectionString)
+        public NorthwindContext()
+            : base("name=NorthwindConection")
         {
         }
 

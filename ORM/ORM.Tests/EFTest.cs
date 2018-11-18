@@ -12,12 +12,12 @@ namespace ORM.Tests
     [TestFixture]
     public class EFTest
     {
-        private readonly string _connectionString = "NorthwindConection";
+        //private readonly string _connectionString = "NorthwindConection";
 
         [Test]
         public void Query_Task_1_1()
         {
-            using (var context = new NorthwindContext(_connectionString))
+            using (var context = new NorthwindContext())
             {
                 var searchCategory = "Beverages";
                 var result = context.Orders.Include(order => order.Customer)
