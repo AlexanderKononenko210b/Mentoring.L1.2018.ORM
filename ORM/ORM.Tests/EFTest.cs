@@ -1,18 +1,18 @@
-﻿using EF.Infrastructure.Models;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using EF.Infrastructure;
+using NUnit.Framework;
 
 namespace ORM.Tests
 {
     /// <summary>
-    /// Tests for EF
+    /// Tests for EF.
     /// </summary>
     [TestFixture]
     public class EFTest
     {
-        //private readonly string _connectionString = "NorthwindConection";
+        //private read only string _connectionString = "NorthwindConection";
 
         [Test]
         public void Query_Task_1_1()

@@ -1,13 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace EF.Infrastructure.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
+    /// <summary>
+    /// Represents a model <see cref="Order_Detail"/> class.
+    /// </summary>
     [Table("Order Details")]
-    public partial class Order_Detail
+    public class Order_Detail
     {
         [Key]
         [Column(Order = 0)]

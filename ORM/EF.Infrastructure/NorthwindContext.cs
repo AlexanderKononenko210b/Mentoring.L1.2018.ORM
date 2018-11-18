@@ -1,8 +1,12 @@
 using System.Data.Entity;
+using EF.Infrastructure.Models;
 
-namespace EF.Infrastructure.Models
+namespace EF.Infrastructure
 {
-    public partial class NorthwindContext : DbContext
+    /// <summary>
+    /// Represents a model <see cref="NorthwindContext"/> class.
+    /// </summary>
+    public class NorthwindContext : DbContext
     {
         public NorthwindContext()
             : base("name=NorthwindConection")

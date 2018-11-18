@@ -5,6 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EF.Infrastructure.Models
 {
+    /// <summary>
+    /// Represents a model <see cref="Employee"/> class.
+    /// </summary>
     public class Employee
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
