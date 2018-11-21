@@ -7,7 +7,7 @@ using Micro.ORM.Infrastructure;
 using Micro.ORM.Infrastructure.Models;
 using NUnit.Framework;
 
-namespace ORM.Tests
+namespace MicroORM.Test
 {
     [TestFixture]
     public class MicroORMTest
@@ -149,7 +149,7 @@ namespace ORM.Tests
                         })
                     .Distinct()
                     .OrderBy(employee => employee.FirstName)
-                    .GroupBy(employee => new {employee.FirstName, employee.LastName},
+                    .GroupBy(employee => new { employee.FirstName, employee.LastName },
                         (employee, group) => new
                         {
                             FirstName = employee.FirstName,
@@ -377,7 +377,7 @@ namespace ORM.Tests
                 Assert.AreEqual(newProductList.Count, result.Length);
             }
         }
-        
+
         [Test]
         public void Query_Task_3_4()
         {
@@ -404,7 +404,7 @@ namespace ORM.Tests
                                 product => new OrderDetail
                                 {
                                     ProductID = connection.Products
-                                    .FirstOrDefault(prod => prod.ProductID != order.ProductID && prod.CategoryID == order.OrderDetailsProduct.CategoryID).ProductID == 0 ? 
+                                    .FirstOrDefault(prod => prod.ProductID != order.ProductID && prod.CategoryID == order.OrderDetailsProduct.CategoryID).ProductID == 0 ?
                                     order.ProductID :
                                       connection.Products
                                             .FirstOrDefault(prod => prod.ProductID != order.ProductID && prod.CategoryID == order.OrderDetailsProduct.CategoryID)
@@ -429,3 +429,4 @@ namespace ORM.Tests
         }
     }
 }
+
